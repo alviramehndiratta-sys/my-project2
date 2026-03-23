@@ -1,0 +1,55 @@
+<div class="container">
+
+    <!-- Heading -->
+    <div class="text-center mb-4">
+        <h3>Book a Tour ✈️</h3>
+        <p>Fill the form below to reserve your trip</p>
+    </div>
+
+    <!-- BOOKING FORM -->
+    <form ng-submit="bookTour()" class="card p-3 mb-4">
+
+        <div class="row g-2">
+            <div class="col-md-4">
+                <input class="form-control"
+                ng-model="booking.customerName"
+                placeholder="Your Name" required>
+            </div>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                ng-model="booking.packageName"
+                placeholder="Package Name" required>
+            </div>
+
+            <div class="col-md-2">
+                <input type="number"
+                class="form-control"
+                ng-model="booking.persons"
+                placeholder="Persons" required>
+            </div>
+
+            <div class="col-md-2 d-grid">
+                <button class="btn btn-primary">Book</button>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- BOOKINGS LIST -->
+    <h5 class="mb-3">Bookings</h5>
+
+    <div class="card p-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"
+                ng-repeat="(id,b) in bookings">
+
+                <strong>{{b.customerName}}</strong> booked 
+                <span class="text-primary">{{b.packageName}}</span> 
+                for {{b.persons}} persons
+
+            </li>
+        </ul>
+    </div>
+
+</div>
